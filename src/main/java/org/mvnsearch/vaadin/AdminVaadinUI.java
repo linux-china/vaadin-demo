@@ -8,13 +8,11 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-import org.springframework.boot.actuate.endpoint.Endpoint;
-import org.springframework.boot.actuate.endpoint.mvc.MvcEndpoint;
 
-@SpringUI(path = "/admin/index")
+@SpringUI(path = "")
 @Title("Vaadin Admin")
 @Theme("valo")
-public class AdminVaadinUI extends UI implements MvcEndpoint {
+public class AdminVaadinUI extends UI  {
     protected void init(VaadinRequest request) {
         // Create the content root layout for the UI
         VerticalLayout content = new VerticalLayout();
@@ -29,18 +27,4 @@ public class AdminVaadinUI extends UI implements MvcEndpoint {
                 }));
     }
 
-    @Override
-    public String getPath() {
-        return "admin";
-    }
-
-    @Override
-    public boolean isSensitive() {
-        return false;
-    }
-
-    @Override
-    public Class<? extends Endpoint> getEndpointType() {
-        return null;
-    }
 }
