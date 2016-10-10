@@ -22,22 +22,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class LoginUI extends UI {
     @Autowired
     private SpringViewProvider viewProvider;
+    private VerticalLayout layout;
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        final VerticalLayout root = new VerticalLayout();
-        root.setSizeFull();
-        root.setMargin(true);
-        root.setSpacing(true);
-        setContent(root);
+        setupLayout();
+        setupNavigator();
+        getUI().getNavigator().navigateTo("loginview");
+    }
 
+    private void setupLayout() {
+        layout = new VerticalLayout();
+        layout.setSizeFull();
+        layout.setMargin(true);
+        layout.setSpacing(true);
+        setContent(layout);
+    }
+
+    private void setupNavigator() {
         final Panel viewContainer = new Panel();
         viewContainer.setSizeFull();
-        root.addComponent(viewContainer);
-        root.setExpandRatio(viewContainer, 1.0f);
-
+        layout.addComponent(viewContainer);
+        layout.setExpandRatio(viewContainer, 1.0f);
         Navigator navigator = new Navigator(this, viewContainer);
         navigator.addProvider(viewProvider);
-        getUI().getNavigator().navigateTo("loginview");
     }
 }
