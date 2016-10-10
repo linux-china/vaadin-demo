@@ -43,7 +43,6 @@ import java.util.Properties;
  *
  * @author Vaadin Ltd
  */
-
 @Component
 @AutoConfigureAfter(EndpointWebMvcAutoConfiguration.class)
 public class AdminEndPoint implements MvcEndpoint, ServletContextAware, InitializingBean, ApplicationContextAware {
