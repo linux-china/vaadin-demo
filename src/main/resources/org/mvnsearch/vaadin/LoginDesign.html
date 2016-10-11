@@ -5,31 +5,15 @@
   <meta charset="UTF-8" name="vaadin-version" content="7.7.0">
  </head> 
  <body> 
-  <vaadin-grid-layout size-full> 
-   <row> 
-    <column> 
-     <vaadin-label size-auto plain-text>
-       Login 
-     </vaadin-label> 
-    </column> 
-   </row> 
-   <row> 
-    <column> 
-     <vaadin-label size-auto plain-text>
-       Nick 
-     </vaadin-label> 
-    </column> 
-    <column> 
-     <vaadin-text-field _id="nickField"></vaadin-text-field> 
-    </column> 
-   </row> 
-   <row> 
-    <column> 
-     <vaadin-button plain-text _id="summitButton">
-       Summit 
-     </vaadin-button> 
-    </column> 
-   </row> 
-  </vaadin-grid-layout>  
+  <vaadin-form-layout size-full> 
+   <vaadin-label width="154px" plain-text>
+     Login 
+   </vaadin-label> 
+   <vaadin-text-field caption="User Name" input-prompt="" _id="nameField"></vaadin-text-field> 
+   <vaadin-text-field caption="Password" _id="passwordField"></vaadin-text-field> 
+   <vaadin-button plain-text _id="loginButton">
+     Login 
+   </vaadin-button> 
+  </vaadin-form-layout>  
  </body>
 </html>
