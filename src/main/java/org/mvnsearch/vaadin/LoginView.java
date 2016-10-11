@@ -17,8 +17,8 @@ public class LoginView extends LoginDesign implements View {
     @PostConstruct
     public void init() {
         //todo implement event registration here
-        summitButton.addClickListener(event -> {
-            nickField.setValue("Jacky");
+        loginButton.addClickListener(event -> {
+            nameField.setValue("Jacky");
         });
     }
 
