@@ -5,15 +5,14 @@
   <meta charset="UTF-8" name="vaadin-version" content="7.7.0">
  </head> 
  <body> 
-  <vaadin-form-layout size-full> 
-   <vaadin-label width="154px" plain-text>
-     Login 
-   </vaadin-label> 
-   <vaadin-text-field caption="User Name" input-prompt="" _id="nameField"></vaadin-text-field> 
-   <vaadin-text-field caption="Password" _id="passwordField"></vaadin-text-field> 
-   <vaadin-button plain-text _id="loginButton">
-     Login 
-   </vaadin-button> 
-  </vaadin-form-layout>  
+  <vaadin-panel caption="User Login" size-full> 
+   <vaadin-form-layout size-full margin> 
+    <vaadin-text-field caption="User Name" input-prompt="" _id="nameField"></vaadin-text-field> 
+    <vaadin-text-field caption="Password" _id="passwordField"></vaadin-text-field> 
+    <vaadin-button plain-text _id="loginButton">
+      Login 
+    </vaadin-button> 
+   </vaadin-form-layout> 
+  </vaadin-panel>  
  </body>
 </html>
