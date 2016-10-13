@@ -11,8 +11,10 @@ import javax.annotation.PostConstruct;
  *
  * @author linux_china
  */
-@SpringView(name = "loginview")
+@SpringView(name = LoginView.name)
 public class LoginView extends LoginDesign implements View {
+
+    public final static String name = "loginview";
 
     @PostConstruct
     public void init() {
