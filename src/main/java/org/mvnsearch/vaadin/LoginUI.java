@@ -28,7 +28,7 @@ public class LoginUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
         setupLayout();
         setupNavigator();
-        getUI().getNavigator().navigateTo("loginview");
+        getUI().getNavigator().navigateTo(LoginView.name);
     }
 
     private void setupLayout() {
