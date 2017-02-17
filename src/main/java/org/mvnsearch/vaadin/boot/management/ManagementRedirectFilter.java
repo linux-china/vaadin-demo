@@ -14,16 +14,16 @@ import java.util.List;
  */
 public class ManagementRedirectFilter implements Filter {
     private Integer managementPort;
-    private List<String> uiPaths;
+    private List<String> uris;
     private String vaadinAdminPath;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         managementPort = Integer.valueOf(filterConfig.getInitParameter("management.port"));
         vaadinAdminPath = filterConfig.getInitParameter("vaddin.management.path");
-        String path = filterConfig.getInitParameter("uiPaths");
-        if (path != null && !path.isEmpty()) {
-            uiPaths = Arrays.asList(path.split(","));
+        String temp = filterConfig.getInitParameter("uris");
+        if (temp != null && !temp.isEmpty()) {
+            uris = Arrays.asList(temp.split(","));
         }
     }
 
@@ -31,7 +31,7 @@ public class ManagementRedirectFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String requestURI = request.getRequestURI();
-        if (uiPaths!=null && uiPaths.contains(requestURI)) {
+        if (uris!=null && uris.contains(requestURI)) {
             String redirectUrl = request.getRequestURL().toString().replace(requestURI, vaadinAdminPath + requestURI);
             if (redirectUrl.contains(":")) {
                 redirectUrl = redirectUrl.replaceFirst(":\\d+", ":" + managementPort);

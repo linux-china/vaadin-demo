@@ -29,7 +29,7 @@ public class VaadinManagementUIConfiguration {
         registration.addInitParameter("server.port", serverPort);
         registration.addInitParameter("management.port", managementPort);
         registration.addInitParameter("vaddin.management.path", vaadinAdminPath);
-        registration.addInitParameter("uiPaths", uris);
+        registration.addInitParameter("uris", uris);
         registration.setName("ManagementRedirectFilter");
         registration.setOrder(1);
         return registration;
