@@ -25,7 +25,7 @@ public class VaadinManagementUIConfiguration {
     public FilterRegistrationBean someFilterRegistration() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new ManagementRedirectFilter());
-        registration.addUrlPatterns("/*");
+        registration.addServletNames("springVaadinServlet");
         registration.addInitParameter("server.port", serverPort);
         registration.addInitParameter("management.port", managementPort);
         registration.addInitParameter("vaddin.management.path", vaadinAdminPath);
