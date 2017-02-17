@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package org.mvnsearch.vaadin;
+package org.mvnsearch.vaadin.boot.management;
 
 import com.vaadin.server.Constants;
 import com.vaadin.server.DeploymentConfiguration;
@@ -39,26 +39,24 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Properties;
 
 /**
- * Provides various helper methods for connectors. Meant for internal use.
+ * vaadin mvc endpoint to route requests to Vaadin UI
  *
+ * @author linux_china
  * @author Vaadin Ltd
  */
 @Component
 @AutoConfigureAfter(EndpointWebMvcAutoConfiguration.class)
-public class AdminEndPoint implements MvcEndpoint, ServletContextAware, InitializingBean, ApplicationContextAware {
-    public static final String ADMIN_PATH = "/admin";
+public class VaadinAdminEndPoint implements MvcEndpoint, ServletContextAware, InitializingBean, ApplicationContextAware {
+    public static String ADMIN_PATH = "/vaadin-admin";
     private final ServletWrappingController servletController = new ServletWrappingController();
 
-    public AdminEndPoint() {
+    public VaadinAdminEndPoint() {
         servletController.setServletClass(ManagementVaadinServlet.class);
         servletController.setServletName("VaadinAdmin");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        Properties properties = new Properties();
-        properties.setProperty("UI", AdminVaadinUI.class.getName());
-        servletController.setInitParameters(properties);
         servletController.afterPropertiesSet();
     }
 
@@ -75,6 +73,7 @@ public class AdminEndPoint implements MvcEndpoint, ServletContextAware, Initiali
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         servletController.setApplicationContext(applicationContext);
+        ADMIN_PATH = applicationContext.getEnvironment().getProperty("spring.vaadin.management.path", ADMIN_PATH);
     }
 
     @Override
