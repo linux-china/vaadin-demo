@@ -1,13 +1,14 @@
-# <span style="color:darkred">DISCLAIMER</span>
-This is very raw prototype.
-Do not use this in production until it's tested and analysed for security issues.
+Vaadin Spring Boot management UI Demo
+=====================================
 
-Vaadin Spring Boot management Demo
-============================
+Vaadin Spring Boot Demo to display Vaadin UI on management port
 
-Vaadin Demo application for Spring Boot Management endpoint
+### Vaadin Admin Uri list
 
+Display Vaadin UI through management port. http://localhost:8081/admin/admin2
 
-### Vaadin Admin
+### How display Vaadin UI to management port
 
-Display Vaadin UI through management port. http://localhost:8081/admin
+* Create Servlet Wrapping  MVC Endpoint
+* Forward to Vaadin UI
+* Create interceptor to block visit admin uri list from server.port
