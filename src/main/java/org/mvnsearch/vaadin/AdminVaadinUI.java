@@ -9,10 +9,10 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-@SpringUI(path = "")
+@SpringUI(path = "/admin2")
 @Title("Vaadin Admin")
 @Theme("valo")
-public class AdminVaadinUI extends UI  {
+public class AdminVaadinUI extends UI {
     protected void init(VaadinRequest request) {
         // Create the content root layout for the UI
         VerticalLayout content = new VerticalLayout();
@@ -22,9 +22,7 @@ public class AdminVaadinUI extends UI  {
         content.addComponent(label);
         // Have a clickable button
         content.addComponent(new Button("Push Me!",
-                (Button.ClickListener) e -> {
-                    label.setValue("clicked!!!");
-                }));
+                (Button.ClickListener) e -> label.setValue("clicked!!!")));
     }
 
 }
