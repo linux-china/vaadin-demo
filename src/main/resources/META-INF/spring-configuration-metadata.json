@@ -4,11 +4,6 @@
       "name": "spring.vaadin.management.path",
       "type": "java.lang.String",
       "description": "Vaadin management path, default is '/vaadin-admin'."
-    },
-    {
-      "name": "spring.vaadin.management.uris",
-      "type": "java.lang.String",
-      "description": "vaadin management uri splited by comma, such as'/admin1,/admin2'."
     }
   ]
 }
