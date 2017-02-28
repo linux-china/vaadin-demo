@@ -1,6 +1,7 @@
 package org.mvnsearch.vaadin.boot.management;
 
 import com.vaadin.spring.annotation.SpringUI;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -43,7 +44,11 @@ public class VaadinManagementUIConfiguration implements ApplicationContextAware 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         Map<String, Object> apps = applicationContext.getBeansWithAnnotation(SpringBootConfiguration.class);
         for (Object app : apps.values()) {
-            String packageName = app.getClass().getPackage().getName();
+            Class appClazz = app.getClass();
+            if (AopUtils.isAopProxy(app)) {
+                appClazz = AopUtils.getTargetClass(app).getClass();
+            }
+            String packageName = appClazz.getPackage().getName();
             ClassPathScanningCandidateComponentProvider provider = new ClassPathScanningCandidateComponentProvider(false);
             provider.addIncludeFilter(new AnnotationTypeFilter(SpringManagementOnly.class));
             Set<BeanDefinition> vaadinComponents = provider.findCandidateComponents(packageName);
