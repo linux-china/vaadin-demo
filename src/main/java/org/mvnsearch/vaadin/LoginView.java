@@ -20,7 +20,7 @@ public class LoginView extends LoginDesign implements View {
     public void init() {
         //todo implement event registration here
         loginButton.addClickListener(event -> {
-            nameField.setValue("Jacky");
+            userNameField.setValue("Jacky");
         });
     }
 
