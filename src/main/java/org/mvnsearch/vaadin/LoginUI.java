@@ -7,10 +7,7 @@ import com.vaadin.navigator.ViewDisplay;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.annotation.SpringViewDisplay;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.Panel;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.*;
 
 /**
  * login UI
@@ -33,11 +30,10 @@ public class LoginUI extends UI implements ViewDisplay {
     private void setupLayout() {
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
-        layout.setMargin(true);
+        layout.setMargin(false);
         layout.setSpacing(true);
         setContent(layout);
         springViewDisplay = new Panel();
-        springViewDisplay.setSizeFull();
         layout.addComponent(springViewDisplay);
     }
 
