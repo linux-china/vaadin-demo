@@ -2,14 +2,15 @@ package org.mvnsearch.vaadin;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
-import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewDisplay;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
-import com.vaadin.spring.navigator.SpringViewProvider;
+import com.vaadin.spring.annotation.SpringViewDisplay;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * login UI
@@ -19,32 +20,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 @SpringUI(path = "/login")
 @Title("Vaadin Login")
 @Theme("valo")
-public class LoginUI extends UI {
-    @Autowired
-    private SpringViewProvider viewProvider;
-    private VerticalLayout layout;
+@SpringViewDisplay
+public class LoginUI extends UI implements ViewDisplay {
+    private Panel springViewDisplay;
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         setupLayout();
-        setupNavigator();
         getUI().getNavigator().navigateTo(LoginView.name);
     }
 
     private void setupLayout() {
-        layout = new VerticalLayout();
+        VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
         layout.setMargin(true);
         layout.setSpacing(true);
         setContent(layout);
+        springViewDisplay = new Panel();
+        springViewDisplay.setSizeFull();
+        layout.addComponent(springViewDisplay);
     }
 
-    private void setupNavigator() {
-        final Panel viewContainer = new Panel();
-        viewContainer.setSizeFull();
-        layout.addComponent(viewContainer);
-        layout.setExpandRatio(viewContainer, 1.0f);
-        Navigator navigator = new Navigator(this, viewContainer);
-        navigator.addProvider(viewProvider);
+    @Override
+    public void showView(View view) {
+        springViewDisplay.setContent((Component) view);
     }
 }
