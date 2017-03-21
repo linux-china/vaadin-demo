@@ -30,11 +30,11 @@ public class LoginUI extends UI implements ViewDisplay {
     private void setupLayout() {
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
-        layout.setMargin(false);
-        layout.setSpacing(true);
         setContent(layout);
         springViewDisplay = new Panel();
+        springViewDisplay.setWidth("50%");
         layout.addComponent(springViewDisplay);
+        layout.setComponentAlignment(springViewDisplay, Alignment.TOP_CENTER);
     }
 
     @Override
