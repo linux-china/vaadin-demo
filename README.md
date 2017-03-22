@@ -12,3 +12,7 @@ Display Vaadin UI with @SpringManagementOnly annotation through management port.
 * Create Servlet Wrapping  MVC Endpoint
 * Forward to Vaadin UI
 * Create interceptor to block visit admin vaadin UI list from server.port
+
+### Glossary
+
+* UI(view切换) -> View(包含业务逻辑) -> XxxDesign(手动或者designer生成，负责UI)
