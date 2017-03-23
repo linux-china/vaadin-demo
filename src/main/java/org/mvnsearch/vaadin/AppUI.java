@@ -16,7 +16,7 @@ import org.mvnsearch.vaadin.chart.ChartView;
  *
  * @author linux_china
  */
-@SpringUI(path = "")
+@SpringUI
 @Title("Welcome to Application ")
 @Theme("valo")
 @SpringViewDisplay
@@ -42,6 +42,8 @@ public class AppUI extends UI implements ViewDisplay {
 
     @Override
     public void showView(View view) {
-        springViewDisplay.setContent((Component) view);
+        if (view instanceof Component) {
+            springViewDisplay.setContent((Component) view);
+        }
     }
 }
