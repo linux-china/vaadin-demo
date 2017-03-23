@@ -16,3 +16,8 @@ Display Vaadin UI with @SpringManagementOnly annotation through management port.
 ### Glossary
 
 * UI(view切换) -> View(包含业务逻辑) -> XxxDesign(手动或者designer生成，负责UI)
+
+
+### References
+
+* Vaadin Charts Demo:  https://demo.vaadin.com/charts/
