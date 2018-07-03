@@ -9,7 +9,6 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.annotation.SpringViewDisplay;
 import com.vaadin.ui.*;
-import org.mvnsearch.vaadin.chart.ChartView;
 
 /**
  * App UI
@@ -27,7 +26,6 @@ public class AppUI extends UI implements ViewDisplay {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         setupLayout();
-        getUI().getNavigator().navigateTo(ChartView.name);
     }
 
     private void setupLayout() {
