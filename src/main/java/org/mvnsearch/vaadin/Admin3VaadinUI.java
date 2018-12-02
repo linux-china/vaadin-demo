@@ -8,12 +8,10 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-import org.mvnsearch.vaadin.boot.management.SpringManagementOnly;
 
 @SpringUI(path = "/admin3")
 @Title("Vaadin Admin")
 @Theme("valo")
-@SpringManagementOnly
 public class Admin3VaadinUI extends UI {
     protected void init(VaadinRequest request) {
         // Create the content root layout for the UI

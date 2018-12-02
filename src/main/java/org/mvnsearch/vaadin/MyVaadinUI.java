@@ -5,8 +5,6 @@ import com.vaadin.annotations.Title;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.*;
-import org.springframework.boot.actuate.endpoint.Endpoint;
-import org.springframework.boot.actuate.endpoint.mvc.MvcEndpoint;
 
 @SpringUI(path = "/my")
 @Title("Vaadin Workspace")
